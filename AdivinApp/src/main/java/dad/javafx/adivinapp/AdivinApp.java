@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -36,17 +37,19 @@ public class AdivinApp extends Application {
 					System.out.println(numeroRandom);
 					if (parseNumeroField == numeroRandom) {
 						intentos++;
-						ImplementacionesAdivinApp.numeroCorrectoAlert(intentos);
+//						ImplementacionesAdivinApp.numeroCorrectoAlert(intentos);
+						AlertAdivinApp.mostrarAlert(AlertType.INFORMATION, "¡Has ganado!", "Sólo has necesitado " + intentos + " intentos. \n\nVuelve a jugar y hazlo mejor.");
+
 					} else if (parseNumeroField > numeroRandom) {
 						intentos++;
-						ImplementacionesAdivinApp.numeroIncorrectoMayorAlert(intentos, parseNumeroField);
+						AlertAdivinApp.mostrarAlert(AlertType.WARNING, "¡Has fallado!", "El número a adivinar es menor que " + parseNumeroField + ". \n\nVuelve a intentarlo.");
 					} else if (parseNumeroField < numeroRandom) {
 						intentos++;
-						ImplementacionesAdivinApp.numeroIncorrectoMenorAlert(intentos, parseNumeroField);
+						AlertAdivinApp.mostrarAlert(AlertType.WARNING, "¡Has fallado!", "El número a adivinar es mayor que " + parseNumeroField + ". \n\nVuelve a intentarlo.");
 					}
 
 				} catch (Exception e) {
-					ImplementacionesAdivinApp.valorErroneoAlert();
+					AlertAdivinApp.mostrarAlert(AlertType.ERROR, "Error", "El número introducido no es válido.");
 				}
 
 			}

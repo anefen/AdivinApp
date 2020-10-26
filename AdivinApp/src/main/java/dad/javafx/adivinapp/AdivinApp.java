@@ -37,7 +37,6 @@ public class AdivinApp extends Application {
 					System.out.println(numeroRandom);
 					if (parseNumeroField == numeroRandom) {
 						intentos++;
-//						ImplementacionesAdivinApp.numeroCorrectoAlert(intentos);
 						AlertAdivinApp.mostrarAlert(AlertType.INFORMATION, "¡Has ganado!", "Sólo has necesitado " + intentos + " intentos. \n\nVuelve a jugar y hazlo mejor.");
 
 					} else if (parseNumeroField > numeroRandom) {
